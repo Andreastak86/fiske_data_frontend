@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 const API_BASE =
     process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
 
-/* ------------------ Types ------------------ */
-
 interface Summary {
     total_catches: number;
     unique_species: number;
@@ -33,8 +31,6 @@ interface Catch {
     water_temp_c: number | null;
     notes: string | null;
 }
-
-/* -------------------------------------------- */
 
 export default function HomePage() {
     const [summary, setSummary] = useState<Summary | null>(null);
@@ -99,10 +95,7 @@ export default function HomePage() {
                     <h1 className='text-3xl md:text-4xl font-bold text-sky-900'>
                         Fangstdashboard 🎣
                     </h1>
-                    <p className='text-sky-800'>
-                        Sol, sjø og statistikk – en lys oversikt over fangstene
-                        dine.
-                    </p>
+                    <p className='text-sky-800'>Sol, sjø og statistikk</p>
                 </header>
 
                 {loading && !summary && (
@@ -237,8 +230,6 @@ export default function HomePage() {
         </main>
     );
 }
-
-/* ---------------- Components ---------------- */
 
 function Card({ title, value }: { title: string; value: string | number }) {
     return (
